@@ -1,39 +1,41 @@
 <!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;
+        }
+  </style>
+      <title>Goryl</title>
+      <link rel="icon" type="image/x-icon" href="/gorilla.jpg">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
 
-<style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
-</style>
+      .bg {
+        /* The image used */
+        background-image: url("img_girl.jpg");
 
-<head>
-    <title>Goryl</title>
-    <link rel="icon" type="image/x-icon" href="/gorilla.jpg">
-</head>
-<body>
-     <img src="/gorilla.jpg" alt="Darmowe Wi-fi czeka na ciebie!" width="4000" height="1600">
-     <script>
-          window.addEventListener('load', function () {
-        var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        var source = audioCtx.createBufferSource();
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '0.mp3');
-        xhr.responseType = 'arraybuffer';
-        xhr.addEventListener('load', function (r) {
-            audioCtx.decodeAudioData(
-                    xhr.response, 
-                    function (buffer) {
-                        source.buffer = buffer;
-                        source.connect(audioCtx.destination);
-                        source.loop = false;
-                    });
-            source.start(0);
-        });
-        xhr.send();
-    });
-     </script>
-</body>
+        /* Full height */
+        height: 100%; 
 
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      </style>
+  </head>
+  <body>
+      <img src="/gorilla.jpg" alt="Darmowe Wi-fi czeka na ciebie!" width="4000" height="1600">
+        <audio autoplay loop>
+          <source src="0.mp3" type="audio/mpeg">
+        </audio>
+  </body>
+</html>
